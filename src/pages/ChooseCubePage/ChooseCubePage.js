@@ -30,7 +30,7 @@ function Cubes(props) {
   if (!cubes.length) {
     return (
       <span className="text-secondary">
-        Connect wallet to allow getting info about your cubes
+        Connect wallet to allow getting info about your cubes ʘ‿ʘ
       </span>
     );
   }
