@@ -1,0 +1,10 @@
+.tetris-controllers {
+  display: flex;
+
+  &__controller {
+    margin-right: 20px;
+    @media (max-width: 992px) {
+      margin-bottom: 20px;
+    }
+  }
+}

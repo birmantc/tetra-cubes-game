@@ -1,0 +1,17 @@
+.tetris {
+  width: 100%;
+
+  &__controllers {
+    margin-top: 40px;
+  }
+
+  &__cube-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width: 992px) {
+      margin-top: 40px;
+    }
+  }
+}

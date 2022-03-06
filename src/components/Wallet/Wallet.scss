@@ -1,0 +1,7 @@
+.tc-wallet {
+  display: flex;
+
+  & > * {
+    margin-left: 10px;
+  }
+}
