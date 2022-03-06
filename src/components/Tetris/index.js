@@ -13,21 +13,6 @@ import "./index.scss";
 
 const b = cn("tetris");
 
-function loadFont() {
-  const tetrisFont = new FontFace(
-    "tetris-font",
-    "url(./files/press-start-2p-cyrillic-ext-400-normal.woff2)"
-  );
-
-  tetrisFont
-    .load()
-    .then((font) => {
-      document.fonts.add(font);
-      console.log("Font loaded");
-    })
-    .catch((e) => console.log(e));
-}
-
 function Tetris(props) {
   const tetris = useRef(null);
   const [level, setLevel] = useState(5);
@@ -60,7 +45,7 @@ function Tetris(props) {
     return () => {
       tetris.current.off(ClassicTetris.GAME_OVER, onGameOver);
     };
-  }, [colors, level]);
+  }, [colors, level, onGameOver]);
 
   const onStart = useCallback(() => {
     tetris.current.setStartLevel(level);

@@ -35,7 +35,7 @@ export default function GamePage(props) {
       .catch((e) => {
         console.error(e);
       });
-  }, [cube]);
+  }, [cube, onChangeLoading]);
 
   return (
     <div className={b()}>
