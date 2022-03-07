@@ -3,9 +3,17 @@
 	display: flex;
 	padding: 20px 0;
 	flex-direction: column;
+	
+	& h4 {
+		line-height: 40px;
+	}
 
 	&__subtitle {
 		margin-bottom: 30px;
+	}
+
+	&__section {
+		margin-bottom: 60px;
 	}
 
 	&__cube {

@@ -26,7 +26,7 @@ npm run start
 
 - Color the tetris blocks with a random color  
   Now a constant color is used for a certain block
-- Test cube for non-holders
+- ~~Test cube for non-holders~~ [DONE]
 - Dark theme (optional)
 
 ### Chore
