@@ -3,13 +3,16 @@ import { Row, Col } from 'react-bootstrap';
 import cn from 'bem-cn-lite';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-
-import { getCubesNft } from './utils';
-
-import './ChooseCubePage.scss';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 
+import { getCubesNft } from './utils';
+import testGen0Img from '../../images/gen0.png';
+
+import './ChooseCubePage.scss';
+
 const b = cn('choose-cube-page');
+
+const TEST_CUBES = [{ src: testGen0Img, name: 'Gen 0' }];
 
 Cube.propTypes = {
 	src: PropTypes.string,
@@ -43,14 +46,6 @@ function Cubes(props) {
 	const { cubes = [], onClick } = props;
 
 	useEffect(() => {}, []);
-
-	if (!cubes.length) {
-		return (
-			<span className='text-secondary'>
-				Connect wallet to allow getting info about your cubes
-			</span>
-		);
-	}
 
 	return (
 		<div className={b('cubes')}>
@@ -93,11 +88,34 @@ export default function ChooseCubePage(props) {
 
 	return (
 		<div className={b()}>
-			<h4 className={b('subtitle')}>
-				My cubes
-				<span className='text-secondary'>({cubes.length})</span>
+			<h4 className={b('section')}>
+				The tetris game will be colored
+				<br /> by chosen cube
 			</h4>
-			<Cubes {...props} cubes={cubes} />
+			<div className={b('section')}>
+				<h5 className={b('subtitle')}>
+					My cubes
+					<span className='text-secondary'>({cubes.length})</span>
+				</h5>
+				{!cubes.length && (
+					<span className='text-secondary'>
+						Connect a wallet to get information about your cubes
+					</span>
+				)}
+				<Cubes {...props} cubes={cubes} />
+			</div>
+			{!cubes.length && (
+				<div className={b('section')}>
+					<h5 className={b('subtitle')}>
+						Common cubes
+						<span className='text-secondary'>({TEST_CUBES.length})</span>
+					</h5>
+					<span className='text-secondary'>
+						You can play without even being the holder
+					</span>
+					<Cubes {...props} cubes={TEST_CUBES} />
+				</div>
+			)}
 		</div>
 	);
 }
