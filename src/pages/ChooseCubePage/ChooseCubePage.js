@@ -77,7 +77,7 @@ export default function ChooseCubePage(props) {
 	const { onChangeLoading } = props;
 	const [cubes, setCubes] = useState([]);
 	const { connection } = useConnection();
-	const { publicKey } = useWallet();
+	const { publicKey, connected } = useWallet();
 
 	useEffect(() => {
 		getCubesNft({ connection, publicKey }).then((nftCubes) => {
@@ -99,7 +99,9 @@ export default function ChooseCubePage(props) {
 				</h5>
 				{!cubes.length && (
 					<span className='text-secondary'>
-						Connect a wallet to get information about your cubes
+						{connected && 'You don\'t have cubes in the connected wallet'}
+						{!connected &&
+							'Connect a wallet to get information about your cubes'}
 					</span>
 				)}
 				<Cubes {...props} cubes={cubes} />
