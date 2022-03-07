@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tetra-cubes-game/static/css/main.f0781a85.css",
-    "main.js": "/tetra-cubes-game/static/js/main.db8d2978.js",
+    "main.css": "/tetra-cubes-game/static/css/main.b9019655.css",
+    "main.js": "/tetra-cubes-game/static/js/main.a3318625.js",
     "static/js/431.4505fadc.chunk.js": "/tetra-cubes-game/static/js/431.4505fadc.chunk.js",
     "static/js/126.b6eaf5e6.chunk.js": "/tetra-cubes-game/static/js/126.b6eaf5e6.chunk.js",
     "static/js/912.9d52c781.chunk.js": "/tetra-cubes-game/static/js/912.9d52c781.chunk.js",
@@ -15,8 +15,8 @@
     "static/media/press-start-2p-cyrillic-ext-400-normal.woff2": "/tetra-cubes-game/static/media/press-start-2p-cyrillic-ext-400-normal.3f07e4fb28b05927ecf1.woff2",
     "static/media/press-start-2p-greek-400-normal.woff2": "/tetra-cubes-game/static/media/press-start-2p-greek-400-normal.cf2420b5a5026b29ba84.woff2",
     "index.html": "/tetra-cubes-game/index.html",
-    "main.f0781a85.css.map": "/tetra-cubes-game/static/css/main.f0781a85.css.map",
-    "main.db8d2978.js.map": "/tetra-cubes-game/static/js/main.db8d2978.js.map",
+    "main.b9019655.css.map": "/tetra-cubes-game/static/css/main.b9019655.css.map",
+    "main.a3318625.js.map": "/tetra-cubes-game/static/js/main.a3318625.js.map",
     "431.4505fadc.chunk.js.map": "/tetra-cubes-game/static/js/431.4505fadc.chunk.js.map",
     "126.b6eaf5e6.chunk.js.map": "/tetra-cubes-game/static/js/126.b6eaf5e6.chunk.js.map",
     "912.9d52c781.chunk.js.map": "/tetra-cubes-game/static/js/912.9d52c781.chunk.js.map",
@@ -24,7 +24,7 @@
     "880.b9217412.chunk.js.map": "/tetra-cubes-game/static/js/880.b9217412.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0781a85.css",
-    "static/js/main.db8d2978.js"
+    "static/css/main.b9019655.css",
+    "static/js/main.a3318625.js"
   ]
 }
