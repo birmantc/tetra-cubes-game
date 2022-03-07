@@ -1,87 +1,97 @@
-import React, { useRef, useEffect, useCallback, useState } from "react";
-import cn from "bem-cn-lite";
-import { Col, Row } from "react-bootstrap";
-import { Cube } from "../../pages/ChooseCubePage/ChooseCubePage";
+import React, { useRef, useEffect, useCallback, useState } from 'react';
+import cn from 'bem-cn-lite';
+import { Col, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
-import TetrisCanvas from "./TetrisCanvas/TetrisCanvas";
-import TetrisControllers from "./TetrisControllers/TetrisControllers";
-import ClassicTetris from "../../units/tetris/classic-tetris";
+import { Cube } from '../../pages/ChooseCubePage/ChooseCubePage';
+import TetrisCanvas from './TetrisCanvas/TetrisCanvas';
+import TetrisControllers from './TetrisControllers/TetrisControllers';
+import ClassicTetris from '../../units/tetris/classic-tetris';
 
-import { LIGHT_GRAY, DARK_GRAY } from "../../constants";
+import { LIGHT_GRAY, DARK_GRAY } from '../../constants';
 
-import "./index.scss";
+import './index.scss';
 
-const b = cn("tetris");
+const b = cn('tetris');
+
+Tetris.propTypes = {
+	cube: PropTypes.objectOf({
+		src: PropTypes.string,
+		name: PropTypes.string,
+	}),
+	colors: PropTypes.object,
+	onChangeCube: PropTypes.func,
+};
 
 function Tetris(props) {
-  const tetris = useRef(null);
-  const [level, setLevel] = useState(5);
-  const [isStarted, setIsStarted] = useState(false);
-  const { cube, colors, onChangeCube } = props;
+	const tetris = useRef(null);
+	const [level, setLevel] = useState(5);
+	const [isStarted, setIsStarted] = useState(false);
+	const { cube, colors, onChangeCube } = props;
 
-  const onGameOver = useCallback(() => {
-    setIsStarted(false);
-  }, []);
+	const onGameOver = useCallback(() => {
+		setIsStarted(false);
+	}, []);
 
-  useEffect(() => {
-    const canvas = document.getElementById("canvas");
+	useEffect(() => {
+		const canvas = document.getElementById('canvas');
 
-    const tetrisConfig = {
-      ...colors,
-      borderColor: LIGHT_GRAY,
-      gridColor: "transparent",
-      tetrisBackgroundColor: "transparent",
-      backgroundColor: "transparent",
-      canvasFont: '17px "Press Start 2P"',
-      canvasFontColor: DARK_GRAY,
-      ghostColor: [LIGHT_GRAY, "transparent"],
-      gameOverColor: ["#fff", LIGHT_GRAY],
-    };
+		const tetrisConfig = {
+			...colors,
+			borderColor: LIGHT_GRAY,
+			gridColor: 'transparent',
+			tetrisBackgroundColor: 'transparent',
+			backgroundColor: 'transparent',
+			canvasFont: '17px "Press Start 2P"',
+			canvasFontColor: DARK_GRAY,
+			ghostColor: [LIGHT_GRAY, 'transparent'],
+			gameOverColor: ['#fff', LIGHT_GRAY],
+		};
 
-    tetris.current = new ClassicTetris(canvas, tetrisConfig);
+		tetris.current = new ClassicTetris(canvas, tetrisConfig);
 
-    tetris.current.on(ClassicTetris.GAME_OVER, onGameOver);
+		tetris.current.on(ClassicTetris.GAME_OVER, onGameOver);
 
-    return () => {
-      tetris.current.off(ClassicTetris.GAME_OVER, onGameOver);
-    };
-  }, [colors, level, onGameOver]);
+		return () => {
+			tetris.current.off(ClassicTetris.GAME_OVER, onGameOver);
+		};
+	}, [colors, level, onGameOver]);
 
-  const onStart = useCallback(() => {
-    tetris.current.setStartLevel(level);
-    tetris.current.togglePlayPause();
-    setIsStarted(true);
-  }, [level]);
+	const onStart = useCallback(() => {
+		tetris.current.setStartLevel(level);
+		tetris.current.togglePlayPause();
+		setIsStarted(true);
+	}, [level]);
 
-  const onQuit = useCallback(() => {
-    tetris.current.quit();
-    setIsStarted(false);
-  }, []);
+	const onQuit = useCallback(() => {
+		tetris.current.quit();
+		setIsStarted(false);
+	}, []);
 
-  return (
-    <div className={b()}>
-      <Row xs="auto">
-        <Col>
-          <TetrisCanvas />
-          <TetrisControllers
-            onStart={onStart}
-            onQuit={onQuit}
-            onChangeCube={onChangeCube}
-            isStarted={isStarted}
-            onChangeLevel={setLevel}
-            level={level}
-            className={b("controllers")}
-          />
-        </Col>
-        <Col>
-          <div className={b("cube-info")}>
-            <span className="text-secondary">Chosen cube</span>
-            <Cube {...cube} />
-          </div>
-        </Col>
-      </Row>
-    </div>
-  );
+	return (
+		<div className={b()}>
+			<Row xs='auto'>
+				<Col>
+					<TetrisCanvas />
+					<TetrisControllers
+						onStart={onStart}
+						onQuit={onQuit}
+						onChangeCube={onChangeCube}
+						isStarted={isStarted}
+						onChangeLevel={setLevel}
+						level={level}
+						className={b('controllers')}
+					/>
+				</Col>
+				<Col>
+					<div className={b('cube-info')}>
+						<span className='text-secondary'>Chosen cube</span>
+						<Cube {...cube} />
+					</div>
+				</Col>
+			</Row>
+		</div>
+	);
 }
 
 export default Tetris;
