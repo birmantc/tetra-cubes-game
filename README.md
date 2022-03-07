@@ -15,7 +15,7 @@ npm ci
 npm run start
 ```
 
-## Features under development
+## Plan to get out of beta
 
 ### Major features
 
@@ -27,9 +27,9 @@ npm run start
 - Color the tetris blocks with a random color  
   Now a constant color is used for a certain block
 - Test cube for non-holders
-- Dark theme
+- Dark theme (optional)
 
 ### Chore
 
-- Add linting stage for sources
+- ~~Add linting stage for sources~~ [DONE]
 - Add testing environment for the game
