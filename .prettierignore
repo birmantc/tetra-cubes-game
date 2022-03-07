@@ -1,0 +1,7 @@
+node_modules
+build
+craco.config.js
+*.json
+.github
+.husky
+*.md
