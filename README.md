@@ -24,8 +24,7 @@ npm run start
 
 ### Minor features
 
-- Color the tetris blocks with a random color  
-  Now a constant color is used for a certain block
+- ~~Color the tetris blocks with a random color~~ [DONE]  
 - ~~Test cube for non-holders~~ [DONE]
 - Dark theme (optional)
 

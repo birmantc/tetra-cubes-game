@@ -22,7 +22,7 @@ GamePage.propTypes = {
 
 export default function GamePage(props) {
 	const { cube, onChangePage, onChangeLoading } = props;
-	const [colors, setColors] = useState({});
+	const [colors, setColors] = useState([]);
 
 	const onChangeCube = useCallback(() => {
 		onChangePage(CHOOSE_CUBE_PAGE);

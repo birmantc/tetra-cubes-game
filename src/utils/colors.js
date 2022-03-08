@@ -1,4 +1,3 @@
-import { FIGURES } from '../constants';
 import _getImageColors from 'get-image-colors';
 
 export async function getImageColors(imgSrc) {
@@ -8,16 +7,7 @@ export async function getImageColors(imgSrc) {
 }
 
 function generateTetrisColors(colors) {
-	let index = 0;
-
-	return FIGURES.reduce((acc, figureName) => {
-		const color = colors[index++].hex();
-		acc[figureName] = [color, 'transparent'];
-
-		if (index === colors.length) {
-			index = 0;
-		}
-
-		return acc;
-	}, {});
+	return colors.map((color) => {
+		return [color.hex(), 'transparent'];
+	});
 }

@@ -37,7 +37,7 @@ function Tetris(props) {
 		const canvas = document.getElementById('canvas');
 
 		const tetrisConfig = {
-			...colors,
+			pieceColors: colors,
 			borderColor: LIGHT_GRAY,
 			gridColor: 'transparent',
 			tetrisBackgroundColor: 'transparent',

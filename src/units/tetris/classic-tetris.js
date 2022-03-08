@@ -226,6 +226,7 @@ class ClassicTetris {
 			jColor = ['#1801ff', '#5a95ff'],
 			tColor = ['#b802fd', '#f591fe'],
 			iColor = ['#00e6fe', '#86fefe'],
+			pieceColors = [],
 
 			gameOverColor = ['#fff', '#ddd'],
 			ghostColor = ['#000', '#fff'],
@@ -301,6 +302,7 @@ class ClassicTetris {
 		this.canvasFontColor = canvasFontColor;
 
 		// piece colors
+		this.pieceColors = [...pieceColors];
 		this.zColor = [...zColor];
 		this.sColor = [...sColor];
 		this.oColor = [...oColor];
@@ -394,6 +396,25 @@ class ClassicTetris {
 				box: ClassicTetris.I_BOX,
 			},
 		];
+		if (this.pieceColors.length) {
+			this.pieces = this.pieceColors
+				.reduce((acc, pieceColor) => {
+					const pieces = this.pieces.map((piece) => {
+						return {
+							...piece,
+							col: pieceColor,
+						};
+					});
+
+					return acc.concat(pieces);
+				}, [])
+				.map((piece, index) => {
+					return {
+						...piece,
+						id: index,
+					};
+				});
+		}
 
 		// movement/controls
 		this.moveLeft = false;
@@ -1477,10 +1498,10 @@ class ClassicTetris {
 	//--------------------------------------------------------------------------------------------
 
 	_nextPieceId() {
-		let nextId = (Math.random() * 8) | 0;
+		let nextId = (Math.random() * this.pieces.length) | 0;
 		if (nextId === 7 || nextId === this.piece.id) {
-			nextId = (Math.random() * 8) | 0;
-			nextId = (nextId + this.piece.id) % 7;
+			nextId = (Math.random() * this.pieces.length) | 0;
+			nextId = (nextId + this.piece.id) % (this.pieces.length - 1);
 		}
 		return nextId;
 	}
