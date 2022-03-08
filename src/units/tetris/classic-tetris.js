@@ -258,17 +258,12 @@ class ClassicTetris {
 		this.context = this.canvas.getContext('2d');
 		this.context.lineJoin = 'round';
 
+		// init board
+		this.board = [];
+
 		// board dimensions
 		this.boardWidth = boardWidth;
 		this.boardHeight = boardHeight;
-
-		// init board
-		this.board = [];
-		for (let i = 0; i < this.boardHeight; ++i) {
-			const row = [];
-			for (let j = 0; j < this.boardWidth; ++j) row.push(7);
-			this.board.push(row);
-		}
 
 		// render parameters
 		this.boardX = boardX; // board's left
@@ -414,6 +409,13 @@ class ClassicTetris {
 						id: index,
 					};
 				});
+		}
+
+		// fill board
+		for (let i = 0; i < this.boardHeight; ++i) {
+			const row = [];
+			for (let j = 0; j < this.boardWidth; ++j) row.push(this.pieces.length);
+			this.board.push(row);
 		}
 
 		// movement/controls
@@ -1417,7 +1419,7 @@ class ClassicTetris {
 			if (this.gameOverLine < this.boardHeight) {
 				// paint next row
 				for (let i = 0; i < this.boardWidth; ++i)
-					this.board[this.gameOverLine][i] = 7;
+					this.board[this.gameOverLine][i] = this.pieces.length;
 			} else {
 				// game-over animation is done -stop the game loop
 				this.gameLoop = false;
@@ -1499,9 +1501,8 @@ class ClassicTetris {
 
 	_nextPieceId() {
 		let nextId = (Math.random() * this.pieces.length) | 0;
-		if (nextId === 7 || nextId === this.piece.id) {
+		if (nextId === this.piece.id) {
 			nextId = (Math.random() * this.pieces.length) | 0;
-			nextId = (nextId + this.piece.id) % (this.pieces.length - 1);
 		}
 		return nextId;
 	}
@@ -1711,7 +1712,7 @@ class ClassicTetris {
 				for (let j = 0; j < this.boardWidth; ++j) {
 					if (this.board[i][j] !== -1) {
 						const col =
-							this.board[i][j] === 7
+							this.board[i][j] === this.pieces.length
 								? this.gameOverColor
 								: this.pieces[this.board[i][j]].col;
 						this._drawSquare(
