@@ -2,7 +2,7 @@
 
 This game is created by the NFT collection "Tetra Cubes" community
 
-Game: https://birmantc.github.io/tetra-cubes-game/
+Game: https://play-tetracubes.space/
 
 About "Tetra Cubes": https://www.tetracubes.space/
 
