@@ -2,7 +2,7 @@
   "name": "tetra-cubes",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/tetra-cubes-game",
+  "homepage": "/",
   "dependencies": {
     "@craco/craco": "^6.4.3",
     "@fontsource/press-start-2p": "^4.5.2",
