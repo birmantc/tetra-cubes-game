@@ -8,7 +8,7 @@ import TetrisCanvas from './TetrisCanvas/TetrisCanvas';
 import TetrisControllers from './TetrisControllers/TetrisControllers';
 import ClassicTetris from '../../units/tetris/classic-tetris';
 
-import { LIGHT_GRAY, DARK_GRAY, NOTDARK_GRAY } from '../../constants';
+import { LIGHT_GRAY, DARK_GRAY } from '../../constants';
 
 import './index.scss';
 
@@ -43,9 +43,9 @@ function Tetris(props) {
 			tetrisBackgroundColor: 'transparent',
 			backgroundColor: 'transparent',
 			canvasFont: '17px "Press Start 2P"',
-			canvasFontColor: DARK_GRAY,
+			canvasFontColor: LIGHT_GRAY,
 			ghostColor: [LIGHT_GRAY, 'transparent'],
-			gameOverColor: [NOTDARK_GRAY],
+			gameOverColor: [DARK_GRAY, 'transparent'],
 		};
 
 		tetris.current = new ClassicTetris(canvas, tetrisConfig);

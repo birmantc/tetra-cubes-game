@@ -3,7 +3,7 @@
 	display: flex;
 	padding: 5px;
 	flex-direction: column;
-	color: rgb(30, 109, 255);
+	color: #2c77ff;
 	
 	& h4 {
 		line-height: 40px;
@@ -11,7 +11,7 @@
 
 	&__subtitle {
 		margin-bottom: 30px;
-		color: rgb(0, 255, 0); 
+		color: #31ff2c; 
 	}
 
 	&__section {
@@ -23,7 +23,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 30px;
-		color: rgb(182, 0, 182);
+		color: #f62cff;
 
 		&_action {
 			cursor: pointer;
