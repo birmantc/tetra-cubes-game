@@ -41,10 +41,10 @@ function Tetris(props) {
 			borderColor: LIGHT_GRAY,
 			gridColor: 'transparent',
 			tetrisBackgroundColor: 'transparent',
-			backgroundColor: 'transparent',
+			backgroundColor: LIGHT_GRAY,
 			canvasFont: '17px "Press Start 2P"',
 			canvasFontColor: LIGHT_GRAY,
-			ghostColor: [LIGHT_GRAY, 'transparent'],
+			ghostColor: [DARK_GRAY, 'transparent'],
 			gameOverColor: [DARK_GRAY, 'transparent'],
 		};
 
